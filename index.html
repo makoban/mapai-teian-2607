@@ -85,6 +85,15 @@
   .map-cap { font-size: 13px; font-weight: 700; color: var(--navy); margin: 4px 0 6px; }
   .map-badge { position: absolute; transform: translate(-50%,-50%); background: rgba(14,116,144,.92); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 0 0 5px rgba(14,116,144,.25), 0 1px 5px rgba(0,0,0,.35); }
   .map-credit { position: absolute; bottom: 4px; right: 6px; background: rgba(255,255,255,.85); font-size: 10px; padding: 1px 7px; border-radius: 4px; color: var(--sub); }
+  .map-pin-sel { position: absolute; transform: translate(-50%,-50%); width: 20px; height: 20px; border-radius: 50%; background: #b45309; border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(217,119,6,.35), 0 2px 8px rgba(0,0,0,.5); z-index: 5; }
+  .map-pin-sel::after { content: "タップ"; position: absolute; top: -26px; left: 50%; transform: translateX(-50%); background: #1a2f52; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 4px; white-space: nowrap; }
+  .detail-card { max-width: 768px; margin: 8px auto 0; background: var(--card); border: 1px solid var(--line); border-top: 4px solid #b45309; border-radius: 10px; padding: 16px 20px; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+  .detail-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .detail-head b { font-size: 16px; color: var(--navy); }
+  .brand-chip { color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 4px; padding: 2px 10px; flex-shrink: 0; }
+  .detail-table th { width: 110px; font-size: 12.5px; }
+  .detail-table td { text-align: left; font-size: 13px; }
+  .btn-official { display: inline-block; margin-top: 12px; background: var(--blue); color: #fff; font-size: 13.5px; font-weight: 700; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
   .pdf-ex { display: flex; gap: 14px; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
   .pdf-ex img { width: 150px; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,.18); flex-shrink: 0; }
   .pdf-ex .t { font-size: 12.5px; color: var(--sub); }
@@ -237,12 +246,26 @@
       <span class="map-pin" style="left:7.8%;top:48.0%;background:#b45309"></span>
       <span class="map-pin" style="left:13.7%;top:88.7%;background:#b45309"></span>
       <span class="map-pin" style="left:7.9%;top:55.3%;background:#6d28d9"></span>
+      <span class="map-pin-sel" style="left:30.6%;top:61.9%"></span>
       <div class="map-legend"><i style="background:#0e7490"></i>シャーメゾン<br><i style="background:#b45309"></i>D-Room<br><i style="background:#6d28d9"></i>ヘーベルメゾン</div>
       <div class="map-credit">地理院タイル(国土地理院)</div>
     </div>
-    <p style="font-size:12px; color:var(--sub); margin-top:8px">
-      ※2枚とも実際の国土地理院タイルです。画面1の件数バッジを押すとそのエリアへズームし、画面2のように1棟ずつのピンになります。
-      画面2のピンは実際の物件座標(3社クロール実測・中川区周辺)をそのまま表示したものです。ピンを押すと地図下に物件詳細(住所・築年・戸数・公式ページへのリンク)が出ます。
+    <p class="map-cap" style="margin-top:18px">画面3 ｜ ピンをタップすると: 地図の下に物件詳細が表示されます(DBに取り込んだ値+公式リンク)</p>
+    <div class="detail-card">
+      <div class="detail-head"><span class="brand-chip" style="background:#b45309">D-Room</span><b>セレスティア荒子四丁目</b></div>
+      <table class="detail-table">
+        <tr><th>住所</th><td>愛知県名古屋市中川区荒子4丁目178番(<b>番地まで取得済み</b>)</td></tr>
+        <tr><th>築年月</th><td>2024年6月(築2年)</td></tr>
+        <tr><th>地図座標</th><td>35.135765, 136.855799(住所から自動取得・ピンの位置そのまま)</td></tr>
+        <tr><th>掲載状態</th><td>募集中(2026年7月3日 確認)— 満室になっても削除せず「満室(掲載終了)」として記録が残ります</td></tr>
+        <tr><th>データ更新</th><td>週1回の自動更新で最新化</td></tr>
+      </table>
+      <a class="btn-official" href="https://www.droom-daiwaliving.net/b-700132854-001/" target="_blank" rel="noopener">公式ページで空室・家賃を見る →</a>
+      <p style="font-size:11.5px; color:var(--sub); margin-top:8px">▲ この物件は実在します。表示している値はすべて当社DBに取り込み済みの実データで、リンクを押すとD-Room公式の物件ページが開きます。</p>
+    </div>
+    <p style="font-size:12px; color:var(--sub); margin-top:10px">
+      ※地図は実際の国土地理院タイル、画面2のピンは実際の物件座標(3社クロール実測・中川区周辺)です。
+      画面1の件数バッジを押すとそのエリアへズームして画面2の表示になり、ピンをタップすると画面3の詳細(物件名・住所・築年・掲載状態・公式リンク)が地図の下に開きます。
     </p>
   </div>
 
