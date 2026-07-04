@@ -94,6 +94,22 @@
   .detail-table th { width: 110px; font-size: 12.5px; }
   .detail-table td { text-align: left; font-size: 13px; }
   .btn-official { display: inline-block; margin-top: 12px; background: var(--blue); color: #fff; font-size: 13.5px; font-weight: 700; padding: 8px 18px; border-radius: 8px; text-decoration: none; }
+  .plan-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; background: var(--navy); color: #fff; border-radius: 12px; padding: 14px 20px; margin-bottom: 18px; font-size: 14px; }
+  .plan-strip b { font-size: 24px; font-weight: 800; }
+  .ps-plus { font-size: 20px; font-weight: 800; color: #60a5fa; }
+  .ps-note { margin-left: auto; font-size: 12px; background: rgba(255,255,255,.15); border-radius: 999px; padding: 3px 12px; }
+  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .plan { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; position: relative; text-align: center; }
+  .plan-rec { border: 2.5px solid var(--green); }
+  .plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; font-size: 12px; font-weight: 800; border-radius: 999px; padding: 2px 16px; }
+  .plan-name { font-size: 18px; font-weight: 800; color: var(--navy); }
+  .plan-for { font-size: 12.5px; color: var(--sub); margin-bottom: 6px; }
+  .plan-price { font-size: 28px; font-weight: 800; color: var(--navy); margin: 6px 0; }
+  .plan-price small { font-size: 12px; font-weight: 400; color: var(--sub); }
+  .plan-quota { background: #eef6ff; color: #1e3a8a; font-size: 13px; font-weight: 700; border-radius: 8px; padding: 6px 10px; margin: 8px 0 12px; }
+  .plan-inc { list-style: none; text-align: left; margin: 0; }
+  .plan-inc li { padding: 5px 0 5px 24px; position: relative; font-size: 13.5px; border-bottom: 1px dashed var(--line); }
+  .plan-inc li:before { content: "✓"; position: absolute; left: 2px; color: var(--green); font-weight: 700; }
   .pdf-ex { display: flex; gap: 14px; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
   .pdf-ex img { width: 150px; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,.18); flex-shrink: 0; }
   .pdf-ex .t { font-size: 12.5px; color: var(--sub); }
@@ -584,26 +600,44 @@
     ※気に入った回答はワンタップで<b>1問=1枚のA4レポートPDF</b>になります(レイアウト固定・はみ出しや途中改ページなし)。各サンプルのプレビュー画像またはリンクから、その質問のPDFをそのまま開けます。
   </div>
 
-  <h2>ランニングコスト(月額)</h2>
-  <div class="card">
-    <table>
-      <tr><th>項目</th><th>月額(税別)</th><th>備考</th></tr>
-      <tr><td>データベース保存</td><td>4,800円</td><td>運用管理費込み・いつでも解約可能</td></tr>
-      <tr><td>地図使用</td><td>0円</td><td>国土地理院タイルを使用(無料・出典表示のみ)</td></tr>
-      <tr><td>サーバー(自動更新+AI処理)</td><td>1,400円</td><td>週1回の3社データ取得、AIチャットの仲介・回数管理、PDF生成の実行環境・運用管理費込み</td></tr>
-      <tr><td>AI分析 プランA(チーム合計 月200回まで)</td><td>6,000円</td><td>〜10名程度の利用向け</td></tr>
-      <tr><td><b>AI分析 プランB(チーム合計 月400回まで)</b></td><td><b>9,600円</b></td><td><b>10〜20名の営業チーム向け(おすすめ)</b></td></tr>
-      <tr><td>番地変換(新規物件分)</td><td>0円</td><td>無料枠内で処理</td></tr>
-    </table>
-    <p style="font-size:13px; margin-top:10px">
-      月額合計: <b>プランA 12,200円 ／ プランB 15,800円</b>(税別・当社より一括請求)
-    </p>
-    <p style="font-size:12.5px; color:var(--sub); margin-top:6px">
-      ※各項目は海外サービスの実費に当社の運用管理費(稼働監視・障害対応・為替変動の吸収)を含めた価格です。
-      AI分析は上限設定済みのため、プランの金額を超える請求は発生しません。回数はチーム合計でカウントし、
-      上限を超えた月はチャットのみ翌月まで休止(分析履歴の閲覧・地図・Excel出力は通常どおり)。プランは月単位で変更できます。
-    </p>
+  <h2>料金(初期費用+月額のシンプル2本立て)</h2>
+  <div class="plan-strip">
+    <span>初期費用(開発費)</span><b>550,000円</b>
+    <span class="ps-plus">＋</span>
+    <span>月額</span><b>12,200円〜</b>
+    <span class="ps-note">月額はすべて込み・追加請求なし</span>
   </div>
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">プランA</div>
+      <div class="plan-for">〜10名の利用向け</div>
+      <div class="plan-price">月額 12,200円<small>(税別)</small></div>
+      <div class="plan-quota">AIに質問できる回数: チーム合計 月200回</div>
+      <ul class="plan-inc">
+        <li>住宅マップ(全国3社・週1自動更新)</li>
+        <li>AI分析チャット+履歴共有</li>
+        <li>PDF・Excel保存</li>
+        <li>データ保存・サーバー・地図利用料</li>
+      </ul>
+    </div>
+    <div class="plan plan-rec">
+      <div class="plan-badge">おすすめ</div>
+      <div class="plan-name">プランB</div>
+      <div class="plan-for">10〜20名の営業チーム向け</div>
+      <div class="plan-price">月額 15,800円<small>(税別)</small></div>
+      <div class="plan-quota">AIに質問できる回数: チーム合計 月400回</div>
+      <ul class="plan-inc">
+        <li>住宅マップ(全国3社・週1自動更新)</li>
+        <li>AI分析チャット+履歴共有</li>
+        <li>PDF・Excel保存</li>
+        <li>データ保存・サーバー・地図利用料</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:12.5px; color:var(--sub); margin-top:10px">
+    ※回数の上限を超えた月はAIチャットのみ翌月までお休み(地図・履歴・Excelは通常どおり)。超過による追加請求はありません。
+    プランは月単位で変更可・当社より一括請求。初期費用のオプション(全件住所番地調査 +200,000円)は上記「お見積り」参照。
+  </p>
 
   <h2>ご留意点</h2>
   <div class="warn">
