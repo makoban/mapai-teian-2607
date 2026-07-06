@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使い方マニュアル｜住宅マップAIシステム</title>
+<style>
+  :root { --navy:#1a2f52; --blue:#2563eb; --green:#059669; --bg:#f6f8fb; --line:#e3e8f0; --sub:#64748b; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; background:var(--bg); color:#1e293b; line-height:1.9; }
+  header { background:var(--navy); color:#fff; padding:34px 16px; }
+  .wrap { max-width:860px; margin:0 auto; padding:0 16px 70px; }
+  header .mark { font-family:Georgia,serif; font-size:22px; letter-spacing:.06em; }
+  header h1 { font-size:24px; margin-top:6px; }
+  header p { opacity:.85; font-size:13.5px; margin-top:4px; }
+  nav { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 22px; margin:24px 0; font-size:14px; }
+  nav a { color:var(--blue); text-decoration:none; display:inline-block; margin:2px 14px 2px 0; }
+  h2 { font-size:20px; color:var(--navy); margin:44px 0 6px; padding-left:12px; border-left:5px solid var(--blue); scroll-margin-top:20px; }
+  .lead { font-size:14px; color:var(--sub); margin-bottom:14px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:20px 24px; margin-bottom:14px; }
+  ol.steps { margin:8px 0 8px 4px; list-style:none; counter-reset:st; }
+  ol.steps li { counter-increment:st; position:relative; padding:6px 0 6px 40px; font-size:15px; }
+  ol.steps li::before { content:counter(st); position:absolute; left:0; top:7px; width:26px; height:26px; background:var(--blue); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13.5px; font-weight:800; }
+  img.shot { width:100%; border:1px solid var(--line); border-radius:10px; box-shadow:0 3px 14px rgba(0,0,0,.12); margin:10px 0 6px; }
+  img.shot.small { max-width:420px; display:block; margin-left:auto; margin-right:auto; }
+  .cap { font-size:12px; color:var(--sub); text-align:center; margin-bottom:8px; }
+  .point { background:#eef6ff; border-left:4px solid var(--blue); border-radius:8px; padding:10px 15px; font-size:13.5px; margin:12px 0; }
+  .caution { background:#fef9ec; border-left:4px solid #d97706; border-radius:8px; padding:10px 15px; font-size:13.5px; margin:12px 0; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; background:#fff; margin:8px 0; }
+  th,td { border:1px solid var(--line); padding:7px 12px; text-align:left; }
+  th { background:#eef2f8; color:var(--navy); }
+  code { background:#f1f5f9; border-radius:5px; padding:1px 8px; font-size:13px; }
+  .foot { margin-top:50px; font-size:12px; color:var(--sub); border-top:1px solid var(--line); padding-top:14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-bottom:0">
+    <div class="mark">i and f</div>
+    <h1>住宅マップAIシステム 使い方マニュアル</h1>
+    <p>株式会社アイアンドエフ 様 ｜ はじめての方向け ｜ 2026年7月版</p>
+  </div>
+</header>
+<div class="wrap">
+
+<nav>
+  <b>もくじ:</b><br>
+  <a href="#start">1. はじめて使う(登録)</a>
+  <a href="#login">2. ログイン</a>
+  <a href="#map">3. 地図の見かた</a>
+  <a href="#detail">4. 物件の詳細</a>
+  <a href="#filter">5. 絞り込み</a>
+  <a href="#ai">6. AIに質問する</a>
+  <a href="#pdf">7. PDFで保存</a>
+  <a href="#excel">8. Excelで保存</a>
+  <a href="#trouble">9. 困ったとき</a>
+  <a href="#admin">10. 管理者の方へ</a>
+</nav>
+
+<div class="card">
+  <b>このシステムでできること</b><br>
+  シャーメゾン・D-Room・ヘーベルメゾンの全国の賃貸物件を1つの地図で見られる、社内専用のシステムです。
+  スマホでもパソコンでも、下のアドレスを開くだけで使えます。<br>
+  <div class="point">📍 アドレス: <b>https://iandf-jutaku-map.onrender.com</b>(ブックマーク登録がおすすめです)</div>
+</div>
+
+<h2 id="start">1. はじめて使う(登録)</h2>
+<p class="lead">最初の1回だけ、自分の登録をします。1分で終わります。</p>
+<div class="card">
+  <ol class="steps">
+    <li>上のアドレスを開き、画面下の「<b>新規登録</b>」を押す</li>
+    <li><b>名前</b>(履歴に表示されます。例: 山田)と<b>会社のメールアドレス</b>(@iandf.ne.jp)を入れる</li>
+    <li>「登録する」を押す → <b>パスワードがメールで届きます</b></li>
+    <li>届いたパスワードでログイン(パスワードは後から自分の好きなものに変えられます → <a href="#trouble">9章</a>)</li>
+  </ol>
+  <img class="shot small" src="02_register.jpg" alt="新規登録画面">
+  <p class="cap">新規登録は名前とメールの2つだけ。会社のメールアドレス以外では登録できません</p>
+</div>
+
+<h2 id="login">2. ログイン</h2>
+<div class="card">
+  <ol class="steps">
+    <li>メールアドレスとパスワードを入れて「ログイン」</li>
+    <li>一度ログインすれば、同じ端末では30日間そのまま使えます</li>
+  </ol>
+  <img class="shot small" src="01_login.jpg" alt="ログイン画面">
+  <div class="caution">⏰ 朝いちばん等にページがすぐ開かない・「Not Found」と出ることがあります。<b>30秒ほど待って再読み込み</b>すれば開きます(サーバーの目覚まし時間です)。</div>
+</div>
+
+<h2 id="map">3. 地図の見かた</h2>
+<p class="lead">画面は地図が全面。ボタンは右(スマホは下)の3つだけです。</p>
+<div class="card">
+  <img class="shot" src="03_map_wide.jpg" alt="地図(広域)">
+  <p class="cap">引いて見ると、市区町村ごとの物件数が丸い数字で表示されます</p>
+  <ol class="steps">
+    <li><b>丸い数字</b> = そのエリアの物件数。押すとそのエリアへズームします</li>
+    <li>ズームすると1棟ずつのピンに変わります(<span style="color:#0e7490">●シャーメゾン</span> / <span style="color:#b45309">●D-Room</span> / <span style="color:#6d28d9">●ヘーベルメゾン</span>)</li>
+    <li>右上の3つのボタン: <b>絞る</b>(条件をしぼる)・<b>AI分析</b>(質問する)・<b>Excel</b>(一覧を保存)</li>
+  </ol>
+</div>
+
+<h2 id="detail">4. 物件の詳細を見る</h2>
+<div class="card">
+  <ol class="steps">
+    <li>地図のピンを押す</li>
+    <li>画面下に詳細カードが出ます: 住所(番地まで)・築年月・階建・構造・総戸数・掲載状態・<b>募集中の部屋(家賃・間取り・広さ)</b></li>
+    <li>「<b>公式ページで詳細を見る</b>」を押すと、そのメーカーの公式サイトの物件ページが開きます</li>
+  </ol>
+  <img class="shot" src="04_detail.jpg" alt="物件詳細">
+  <p class="cap">「掲載履歴」で、いつから載っているか・過去に満室になったことがあるかも分かります</p>
+</div>
+
+<h2 id="filter">5. 絞り込み</h2>
+<div class="card">
+  <ol class="steps">
+    <li>「絞る」ボタンを押す</li>
+    <li>メーカーのチェック・都道府県・市区町村・築年・「空室のある物件のみ」を選ぶ</li>
+    <li><b>選んだ瞬間に地図が変わります</b>(適用ボタンを押す必要はありません)</li>
+  </ol>
+  <img class="shot" src="05_filter.jpg" alt="絞り込みパネル">
+  <div class="point">💡 ドロップダウンの地名の横の( )は物件数です。メーカーのチェックを変えると数字も変わるので、「どこに多いか」を見ながら選べます。一番下のボタンには今の条件の合計棟数が出ます。</div>
+</div>
+
+<h2 id="ai">6. AIに質問する</h2>
+<p class="lead">データベースに実際に集計をかけて、数字で答えてくれます。<b>質問は何回でも無料</b>です。</p>
+<div class="card">
+  <ol class="steps">
+    <li>「AI分析」ボタンを押す</li>
+    <li>下の<b>青いボタン(定型質問)</b>を押すか、自由に文章で質問を入れる(例:「刈谷市の3社シェアは?」)</li>
+    <li>「送信」を押す(エンターキーでは送信されません) → 数秒〜十数秒で表つきの回答が返ります</li>
+    <li>回答は自動で「<b>みんなの履歴</b>」に保存され、他のメンバーの分析も見られます</li>
+  </ol>
+  <img class="shot" src="06_ai.jpg" alt="AI分析">
+  <div class="point">💡 「絞る」で市区町村を選んでいると、定型質問の「◯◯市」がその地名に自動で変わります。</div>
+</div>
+
+<h2 id="pdf">7. 分析結果をPDFで保存する</h2>
+<div class="card">
+  <ol class="steps">
+    <li>AIの回答の下の「<b>📄 PDFで保存</b>」を押す</li>
+    <li>グラフ入りのA4レポート(1枚)がダウンロードされます。そのまま印刷や共有に使えます</li>
+  </ol>
+  <img class="shot small" src="09_pdf.jpg" alt="PDFレポートの例">
+  <p class="cap">PDFレポートの例。質問・集計表・グラフ・AIのコメントが1枚にまとまります</p>
+  <div class="caution">📄 PDF出力は<b>チーム全体で月400枚まで</b>です(AI分析ボタンの緑のバッジに残り枚数が出ています)。同じ分析のPDFをもう一度ダウンロードするのは枚数を使いません。質問だけなら何回でも無料です。</div>
+</div>
+
+<h2 id="excel">8. Excelで一覧を保存する</h2>
+<div class="card">
+  <ol class="steps">
+    <li>「Excel」ボタンを押す</li>
+    <li>「<b>絞り込み保存</b>」(いまの条件の物件だけ)か「<b>全件保存</b>」を選ぶ — どちらも件数が表示されます</li>
+    <li>Excelファイルがダウンロードされ、そのまま開けます(文字化けしません)</li>
+  </ol>
+  <img class="shot" src="07_excel.jpg" alt="Excel保存">
+  <p class="cap">住所(番地)・築年月・階建・構造・最寄駅・家賃・座標・公式リンクまで全項目入りの一覧です</p>
+</div>
+
+<h2 id="trouble">9. 困ったとき</h2>
+<div class="card">
+  <table>
+    <tr><th>こんなとき</th><th>こうしてください</th></tr>
+    <tr><td>パスワードを自分の好きなものにしたい</td><td>ログイン画面の「<b>パスワード変更</b>」→ メール・今のパスワード・新しいパスワードを入力(控えがメールで届きます)</td></tr>
+    <tr><td>パスワードを忘れた</td><td>ログイン画面の「<b>パスワードを忘れた</b>」→ メールを入力 → 届いたメールのリンク(1時間有効)から再設定</td></tr>
+    <tr><td>表示される名前を変えたい</td><td>ログイン画面の「<b>名前の変更</b>」から</td></tr>
+    <tr><td>ログアウトしたい</td><td>地図画面の左上の<b>自分の名前</b>を押す</td></tr>
+    <tr><td>ページが開かない/「Not Found」</td><td>30秒待って<b>再読み込み</b>(朝いちばん等に起こります)</td></tr>
+  </table>
+</div>
+
+<h2 id="admin">10. 管理者の方へ</h2>
+<div class="card">
+  <p style="font-size:14px">管理者の権限があると、地図画面の左上に「<b>管理</b>」リンクが表示され、管理画面が使えます。</p>
+  <ol class="steps">
+    <li><b>ユーザー一覧</b>: 名前・メール・権限・質問数・PDF数が見られます</li>
+    <li><b>パスワード再発行</b>: 忘れた人に新しいパスワードを発行してメールで届けます</li>
+    <li><b>権限の変更</b>: メンバーを「管理者にする/一般にする」を切り替えられます</li>
+    <li><b>削除</b>: 退職者などのアカウントを削除できます(分析履歴は名前つきで残ります)</li>
+  </ol>
+  <img class="shot" src="08_admin.jpg" alt="管理画面">
+  <p class="cap">管理画面。管理者用のログイン情報は担当者(バンテックス)からお伝えします</p>
+</div>
+
+<div class="caution" style="margin-top:30px">
+  🔒 <b>このシステムのデータは社外秘です。</b>画面・PDF・Excelを社外の方に見せたり渡したりしないでください。
+  データは独自の取得方法・推計による参考情報で、各メーカー公式発表の数値と異なる場合があります。
+</div>
+
+<div class="foot">
+  住宅マップAIシステム 使い方マニュアル ｜ 株式会社アイアンドエフ 様 ｜ 制作: 株式会社バンテックス ｜ 内容に関するお問い合わせ: 052-847-7501
+</div>
+</div>
+</body>
+</html>
