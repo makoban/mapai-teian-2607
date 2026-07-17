@@ -24,13 +24,16 @@
   .flow .arrow { color: var(--blue); font-size: 20px; font-weight: 700; }
   .brands { display: flex; flex-direction: column; gap: 6px; }
   .brands span { display: block; border-radius: 6px; padding: 4px 10px; font-size: 12px; color: #fff; }
-  .b-sham { background: #0e7490; } .b-droom { background: #b45309; } .b-hebel { background: #6d28d9; }
+  .b-sham { background: #0e7490; } .b-droom { background: #b45309; } .b-hebel { background: #6d28d9; } .b-daito { background: #15803d; }
   .cards3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .data-scale { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat { text-align: center; padding: 24px 16px; }
   .stat .num { font-size: 30px; font-weight: 800; color: var(--navy); }
   .stat .label { font-size: 14px; color: var(--sub); }
   .stat .note { font-size: 12px; color: var(--sub); margin-top: 6px; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--card); }
+  .table-scroll { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table-scroll table { min-width: 680px; }
   th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: right; }
   th { background: #eef2f8; color: var(--navy); text-align: center; }
   td:first-child { text-align: left; }
@@ -49,7 +52,7 @@
   .menu .m b { display: block; color: var(--navy); margin-bottom: 2px; font-size: 13.5px; }
   .avail { display: flex; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
   .avail span { font-size: 11px; font-weight: 700; color: #fff; border-radius: 4px; padding: 2px 7px; }
-  .av-sham { background: #0e7490; } .av-droom { background: #b45309; } .av-hebel { background: #6d28d9; }
+  .av-sham { background: #0e7490; } .av-droom { background: #b45309; } .av-hebel { background: #6d28d9; } .av-daito { background: #15803d; }
   .avail .no { background: #cbd5e1; color: #475569; text-decoration: line-through; }
   .tag { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; border-radius: 4px; padding: 1px 8px; margin-bottom: 6px; }
   .tA { background: var(--blue); } .tB { background: var(--green); } .tC { background: var(--orange); } .tD { background: #7c3aed; }
@@ -115,6 +118,7 @@
   .pdf-ex .t { font-size: 12.5px; color: var(--sub); }
   .pdf-ex a { color: var(--blue); font-weight: 700; }
   @media print { body { background: #fff; } .card, .menu .m { break-inside: avoid; } }
+  @media (max-width: 620px) { .data-scale { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -122,7 +126,7 @@
   <div class="wrap">
     <p style="font-size:17px; font-weight:700; margin-bottom:6px; letter-spacing:.04em">株式会社アイアンドエフ 様</p>
     <h1>住宅マップAIシステム 御提案・御見積り</h1>
-    <p>シャーメゾン(積水ハウス)・D-Room(大和ハウス)・ヘーベルメゾン(旭化成) ／ 2026年7月4日(7月3日版 改訂) ／ 株式会社バンテックス</p>
+    <p>シャーメゾン(積水ハウス)・D-Room(大和ハウス)・ヘーベルメゾン(旭化成)・大東建託(DK SELECT/いい部屋ネット) ／ 2026年7月17日 改訂 ／ 株式会社バンテックス</p>
   </div>
 </header>
 <div class="wrap">
@@ -134,6 +138,7 @@
         <span class="b-sham">シャーメゾン公式</span>
         <span class="b-droom">D-Room公式</span>
         <span class="b-hebel">ヘーベル公式</span>
+        <span class="b-daito">大東建託(DK SELECT/いい部屋ネット)</span>
       </div>
       <div class="arrow">→</div>
       <div class="box">自動取得<br><small>週1回・差分方式</small></div>
@@ -323,8 +328,8 @@
     </p>
   </div>
 
-  <h2>データ規模(2026年7月3日 実測+推計)</h2>
-  <div class="cards3">
+  <h2>データ規模(2026年7月17日 実測+推計)</h2>
+  <div class="cards3 data-scale">
     <div class="card stat">
       <div class="label">シャーメゾン</div>
       <div class="num">127,455棟<span class="badge">実測</span></div>
@@ -340,12 +345,18 @@
       <div class="num">約12,000棟</div>
       <div class="note">掲載約2,550棟(実測)×係数4.7で推計<br>(計算式は下記)</div>
     </div>
+    <div class="card stat">
+      <div class="label">大東建託(DK SELECT/いい部屋ネット)</div>
+      <div class="num">191,418件<span class="badge">実測</span></div>
+      <div class="note">47都道府県の公式サイトマップで取得対象を全数確認<br>(満室・過去掲載を含む、2026年7月14日実測)</div>
+    </div>
   </div>
   <div class="card" style="text-align:center; font-size:16px">
-    3社合計 <b style="font-size:24px; color:var(--navy)">全国 約21万棟</b> のデータベースになります<br>
-    <small style="color:var(--sub)">(シャーメゾン127,455棟〈実測〉+ D-Room約6.9万棟〈推計〉+ ヘーベル約1.2万棟〈推計〉)</small>
+    4社合計 <b style="font-size:24px; color:var(--navy)">全国 約40万件</b> のデータベースになります<br>
+    <small style="color:var(--sub)">(シャーメゾン127,455棟〈実測〉+ D-Room約6.9万棟〈推計〉+ ヘーベル約1.2万棟〈推計〉+ 大東建託191,418件〈実測〉)</small>
   </div>
 
+  <div class="table-scroll" role="region" aria-label="都道府県別データ規模">
   <table>
     <tr><th>都道府県(上位)</th><th>シャーメゾン 総棟数(実測)</th><th>D-Room 掲載室数(実測)</th><th>D-Room 総棟数(推計)</th><th>ヘーベル 掲載棟数(実測)</th><th>ヘーベル 総棟数(推計)</th></tr>
     <tr><td>東京都</td><td>11,191</td><td>2,219</td><td>約3,970</td><td>1,080</td><td>約5,080</td></tr>
@@ -360,6 +371,7 @@
     <tr><td>神奈川県</td><td>13,648</td><td>1,428</td><td>約2,560</td><td>370</td><td>約1,740</td></tr>
     <tr><td><b>全国47都道府県 計</b></td><td><b>127,455(実測)</b></td><td><b>38,482</b></td><td><b>約69,000</b></td><td><b>約2,550</b></td><td><b>約12,000</b></td></tr>
   </table>
+  </div>
 
   <div class="card" style="margin-top:16px">
     <h3 style="color:var(--navy); font-size:15px; margin-bottom:10px">推計のロジック(実測→推計の計算式と根拠)</h3>
@@ -376,6 +388,11 @@
     <ul style="font-size:13px; margin:0 0 12px 20px; line-height:1.9">
       <li>係数4.7 = 全国推定12,000棟(管理戸数120,000戸〈旭化成ホームズ公式サイト「12万戸を超える賃貸住宅物件を管理」〉 ÷ 10戸/棟) ÷ 全国掲載2,553棟(当社実測: 47都道府県の公式一覧のページ数×10棟で概算、2026年7月3日)</li>
       <li>例: 東京都 1,080棟 × 4.7 = <b>約5,080棟</b></li>
+    </ul>
+    <p style="font-size:13.5px; margin-bottom:6px"><b>大東建託: 公式サイトマップ件数を実測。</b></p>
+    <ul style="font-size:13px; margin:0 0 12px 20px; line-height:1.9">
+      <li>いい部屋ネットの都道府県別公式サイトマップから、満室・過去掲載を含む建物ページ191,418件を取得対象として全数確認(2026年7月14日)</li>
+      <li>DK SELECT等のシリーズ情報を保持し、大東建託ブランドの判定・集計に利用します</li>
     </ul>
     <p style="font-size:12.5px; color:var(--sub)">
       共通の前提: ①1棟あたり平均10戸と仮定。なおシャーメゾンの実測では1棟平均約5.2戸(66万戸÷12.7万棟)であり、
@@ -399,17 +416,18 @@
       </ul>
     </div>
     <div class="card pkg p2">
-      <h3>② 2社追加(D-Room・ヘーベル)</h3>
-      <div class="price">100,000円<small>(税別)・納期5〜7日</small></div>
+      <h3>② 3社追加(D-Room・ヘーベル・大東建託)</h3>
+      <div class="price">150,000円<small>(税別)・納期7〜10日</small></div>
       <ul>
-        <li>2社の全国自動取り込み(掲載中の全物件)</li>
+        <li>3社の全国自動取り込み(D-Room・ヘーベル・大東建託)</li>
+        <li>大東建託は満室・過去掲載を含む約19万件を収録</li>
         <li>週1回の自動差分更新(新規追加・満室化を記録)</li>
         <li>メーカー別の色分けピンと絞り込み</li>
         <li>番地・座標・築年月・構造・広さ・家賃を統一DB化</li>
         <li>満室化した物件も蓄積(データが毎週育つ)</li>
-        <li>Excel保存の3社対応</li>
+        <li>Excel保存の4社対応</li>
       </ul>
-      <p style="font-size:12px; color:var(--sub); margin-top:8px">※愛知県で動作試験済み(D-Room 623棟・ヘーベル130棟、座標・築年月100%取得)</p>
+      <p style="font-size:12px; color:var(--sub); margin-top:8px">※D-Room・ヘーベルは愛知県で動作試験済み。大東建託は47都道府県の公式サイトマップで取得対象191,418件を確認済み</p>
     </div>
     <div class="card pkg p3">
       <h3>③ AI分析チャット(営業チームで共有)</h3>
@@ -419,7 +437,7 @@
         <li>社内限定ログイン付き(複数人同時OK)。ログインした本人の名前で分析履歴・利用回数を自動記録</li>
         <li>分析履歴画面: 全員の質問・回答を保存して共有 — 他の担当者の分析もチームの資産として見返せる</li>
         <li>満室補正の推計を自動併記: D-Room・ヘーベルは募集中物件しか公開されないため、管理戸数と蓄積データから総棟数を推計してシェアを補正。運用が長いほど蓄積により推計が実測に置き換わり精度が向上</li>
-        <li>分析ルールブック: 「3社比較では必ず推計を併記」のような指示を日本語で登録でき、以後の全回答に自動適用(運用しながら追加・調整可能)</li>
+        <li>分析ルールブック: 「4社比較では必ず実測・推計の区分を併記」のような指示を日本語で登録でき、以後の全回答に自動適用(運用しながら追加・調整可能)</li>
         <li>気に入った分析結果はワンタップでPDF保存(レイアウト固定の型紙に流し込むため崩れません)</li>
         <li>AIへの質問は無制限(何回でも無料)。分析結果を<b>グラフ入りA4レポートPDF</b>にする出力だけ、プランにより月200枚/400枚(チーム合計)</li>
         <li>サポート付き: 6ヶ月間の調整込み(定型質問ボタンの追加・集計軸の変更)</li>
@@ -429,7 +447,7 @@
 
   <div class="total">
     <div>基本構成(①+②+③)</div>
-    <div class="sum">600,000円<small style="font-size:13px; font-weight:400">(税別)</small></div>
+    <div class="sum">650,000円<small style="font-size:13px; font-weight:400">(税別) / 715,000円(税込)</small></div>
   </div>
   <div class="card" style="margin-top:10px; border-top:4px solid var(--green)">
     <h3 style="font-size:15px; color:var(--navy); margin-bottom:8px">番地・号の自動補完は無料で含まれます(追加費用なし)</h3>
@@ -449,7 +467,6 @@
       なお営業上の現地特定は地図のピン(座標)で行えるため、住所表記の補完精度が営業活動の支障になることはありません。
     </p>
   </div>
-  </div>
 
   <h2>分析メニュー(AIチャットに質問できる12の切り口の例)</h2>
   <div class="card" style="font-size:12.5px; padding:12px 18px">
@@ -457,35 +474,35 @@
     もちろんボタン以外の切り口も、自由に文章で質問できます(質問は無制限・PDF保存のみプランの枚数制)。<br>
     <b>データの持ち方の凡例</b>(各メニューの下のアイコンは、その分析に必要な要素を各社が持っているかを表します):
     <span class="avail" style="display:inline-flex; border:none; padding:0; margin:0 0 0 8px">
-      <span class="av-sham">シャーメゾン ◎</span><span class="av-droom">D-Room ○</span><span class="av-hebel">ヘーベル ○</span>
+      <span class="av-sham">シャーメゾン ◎</span><span class="av-droom">D-Room ○</span><span class="av-hebel">ヘーベル ○</span><span class="av-daito">大東建託 ◎</span>
     </span><br>
-    ◎ = 満室を含む全物件のデータで比較可能 ／ ○ = 募集中物件のデータで比較(毎週の蓄積で対象が拡大) ／ 12メニューすべて3社比較が可能です
+    ◎ = 満室・過去掲載を含むデータで比較可能 ／ ○ = 募集中物件のデータで比較(毎週の蓄積で対象が拡大) ／ 12メニューすべて4社比較が可能です
   </div>
   <div class="menu">
     <div class="m"><span class="tag tA">A. エリア勢力図</span><b>A-1 市区町村×メーカー シェア表</b>例: 中川区はシャーメゾン292棟・D-Room36棟・ヘーベル2棟(実測値)
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span></div></div>
-    <div class="m"><span class="tag tA">A. エリア勢力図</span><b>A-2 地図ヒートマップ</b>物件の密集地を色の濃さで表示。町丁目単位まで拡大可(3社とも座標100%)
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span></div></div>
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span><span class="av-daito">大 ◎</span></div></div>
+    <div class="m"><span class="tag tA">A. エリア勢力図</span><b>A-2 地図ヒートマップ</b>物件の密集地を色の濃さで表示。町丁目単位まで拡大可(4社とも座標あり)
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span><span class="av-daito">大 ◎</span></div></div>
     <div class="m"><span class="tag tA">A. エリア勢力図</span><b>A-3 駅商圏分析</b>主要駅から徒歩10分圏内のメーカー別棟数
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span></div></div>
-    <div class="m"><span class="tag tB">B. 供給トレンド</span><b>B-1 築年別の供給推移</b>過去10年以上さかのぼってメーカー別に棟数を比較(3社とも築年月100%)
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span></div></div>
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span><span class="av-daito">大 ◎</span></div></div>
+    <div class="m"><span class="tag tB">B. 供給トレンド</span><b>B-1 築年別の供給推移</b>過去10年以上さかのぼってメーカー別に棟数を比較(4社とも築年月あり)
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span><span class="av-daito">大 ◎</span></div></div>
     <div class="m"><span class="tag tB">B. 供給トレンド</span><b>B-2 竣工予定の先取り</b>新築は完成前に募集が始まるため来年建つ物件まで見える(2027年分を確認済み)
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span></div></div>
-    <div class="m"><span class="tag tB">B. 供給トレンド</span><b>B-3 新築棟数の前年比</b>「今年◯◯市で一番建てたのはどこか」を市区町村別に(新築は3社とも掲載100%)
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span></div></div>
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span><span class="av-daito">大 ◎</span></div></div>
+    <div class="m"><span class="tag tB">B. 供給トレンド</span><b>B-3 新築棟数の前年比</b>「今年◯◯市で一番建てたのはどこか」を市区町村別に比較
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span><span class="av-daito">大 ◎</span></div></div>
     <div class="m"><span class="tag tC">C. 動きの検知</span><b>C-1 新規掲載チェック</b>今週どこに何が出たかを一覧で確認
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span></div></div>
-    <div class="m"><span class="tag tC">C. 動きの検知</span><b>C-2 満室化の記録</b>どの物件がいつ埋まったかを自動記録(シャーメゾンは空室一覧、2社は掲載終了で検知)
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span></div></div>
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span><span class="av-daito">大 ◎</span></div></div>
+    <div class="m"><span class="tag tC">C. 動きの検知</span><b>C-2 満室化の記録</b>どの物件がいつ埋まったかを自動記録(空室一覧・掲載終了・更新日から検知)
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span><span class="av-daito">大 ◎</span></div></div>
     <div class="m"><span class="tag tC">C. 動きの検知</span><b>C-3 埋まりやすさ比較</b>掲載から満室までの日数をメーカー・エリア別にランキング(週単位の精度)
-      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span></div></div>
+      <div class="avail"><span class="av-sham">シ ◎</span><span class="av-droom">D ◎</span><span class="av-hebel">ヘ ◎</span><span class="av-daito">大 ◎</span></div></div>
     <div class="m"><span class="tag tD">D. 賃料・商品性</span><b>D-1 賃料相場表</b>間取り別・メーカー別の㎡単価比較(募集中の部屋の賃料=市場に出ている実勢値)
-      <div class="avail"><span class="av-sham">シ ○</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span></div></div>
+      <div class="avail"><span class="av-sham">シ ○</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span><span class="av-daito">大 ○</span></div></div>
     <div class="m"><span class="tag tD">D. 賃料・商品性</span><b>D-2 築年数と賃料の関係</b>築何年でどれだけ家賃が下がるかのカーブ
-      <div class="avail"><span class="av-sham">シ ○</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span></div></div>
+      <div class="avail"><span class="av-sham">シ ○</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span><span class="av-daito">大 ○</span></div></div>
     <div class="m"><span class="tag tD">D. 賃料・商品性</span><b>D-3 設備トレンド</b>ZEH・宅配ボックス・ペット可などの搭載率推移
-      <div class="avail"><span class="av-sham">シ ○</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span></div></div>
+      <div class="avail"><span class="av-sham">シ ○</span><span class="av-droom">D ○</span><span class="av-hebel">ヘ ○</span><span class="av-daito">大 ○</span></div></div>
   </div>
   <p style="font-size:12.5px; color:var(--sub); margin-top:8px">
     ※A・Bは初回取り込み直後から出せます。C・Dは週次データの蓄積が元になるため、運用開始2〜3か月から本領を発揮します。<br>
@@ -625,7 +642,7 @@
 
   <h2>料金(初期費用+月額)</h2>
   <div class="plan-strip">
-    <span>初期費用(開発費)</span><b>600,000円</b>
+    <span>初期費用(開発費)</span><b>650,000円</b>
     <span class="ps-plus">＋</span>
     <span>月額</span><b>12,200円〜</b>
     <span class="ps-note">月額はすべて込み・追加請求なし</span>
@@ -649,14 +666,14 @@
     </table>
     <p style="font-size:12.5px; color:var(--sub); margin-top:10px">
       ※上限を超えた月はPDF出力のみ翌月までお休み(質問・地図・履歴・Excelは通常どおり)。超過による追加請求はありません。
-      プランは月単位で変更可・当社より一括請求。
+      プランは月単位で変更可・当社より一括請求。大東建託約19万件を追加しても現行のデータベース容量内で運用できるため、月額は据え置きです。
     </p>
   </div>
 
   <h2>ご留意点</h2>
   <div class="warn">
-    積水ハウス・大和ハウス・旭化成の各サイト利用条件には、データの無断複製・転用を制限する趣旨があります。
-    完全社内利用を前提とし、本格運用の前に3社への利用許諾の確認を推奨します。
+    積水ハウス・大和ハウス・旭化成・大東建託グループの各サイト利用条件には、データの無断複製・転用を制限する趣旨があります。
+    完全社内利用を前提とし、本格運用の前に4社への利用許諾の確認を推奨します。
   </div>
   <div class="warn" style="margin-top:10px">
     <b>データの取り扱いについて(必ずお読みください)</b><br>
@@ -667,9 +684,9 @@
   </div>
 
   <div class="foot">
-    <p>・数値は2026年7月3日時点の実測および推計です。「推計」とある数値は空室の発生率が全国均一と仮定した概算であり、実数は取り込み後に確定します。</p>
-    <p>・本書は2026年7月3日版の改訂です(③を固定12メニューの月次分析から、営業チームで共有するAI分析チャット〈履歴共有・PDF保存〉に変更し、ランニングコストを運用管理費込みの月額プラン制〈AI分析は200回/400回の2プラン〉に更新)。</p>
-    <p>・株式会社バンテックス ／ 愛知県名古屋市天白区原3丁目304番1号 T&Lビル2-A ／ TEL 052-847-7501</p>
+    <p>・数値は2026年7月14日時点までの実測および推計です。「推計」とある数値は空室の発生率が全国均一と仮定した概算であり、実数は取り込み後に確定します。</p>
+    <p>・本書は2026年7月17日改訂版です。大東建託(DK SELECT/いい部屋ネット)約19万件を追加し、対象を4社、追加開発費を3社合計150,000円、基本構成の初期費用を650,000円(税別)に更新しました。</p>
+    <p>・株式会社バンテックス ／ 愛知県名古屋市天白区原3丁目304番1号 T&amp;Lビル2-A ／ TEL 052-847-7501</p>
   </div>
 </div>
 </body>
